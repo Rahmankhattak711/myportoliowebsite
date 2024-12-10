@@ -4,6 +4,8 @@ import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
 import CheckCircle from "@/assets/icons/check-circle.svg";
 import ArrowRightIcon from "@/assets/icons/arrow-up-right.svg";
 import Image from "next/image";
+import HeaderSection from "@/components/HeaderSection";
+import Button from "@/components/Button";
 
 const portfolioProjects = [
   {
@@ -15,7 +17,7 @@ const portfolioProjects = [
       { title: "Improved site speed by 50%" },
       { title: "Increased mobile traffic by 35%" },
     ],
-    link: "https://youtu.be/4k7IdSLxh6w",
+    link: "/",
     image: darkSaasLandingPage,
   },
   {
@@ -27,7 +29,7 @@ const portfolioProjects = [
       { title: "Expanded customer reach by 35%" },
       { title: "Increased brand awareness by 15%" },
     ],
-    link: "https://youtu.be/7hi5zwO75yc",
+    link: "/",
     image: lightSaasLandingPage,
   },
   {
@@ -39,7 +41,7 @@ const portfolioProjects = [
       { title: "Improved site speed by 50%" },
       { title: "Increased mobile traffic by 35%" },
     ],
-    link: "https://youtu.be/Z7I5uSRHMHg",
+    link: "/",
     image: aiStartupLandingPage,
   },
 ];
@@ -48,17 +50,11 @@ export const ProjectsSection = () => {
   return (
     <div>
       <div className="container">
-        <div className="flex justify-center ">
-          <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text mt-8  lg:mt-[100px]">
-            Real-world Results
-          </p>
-        </div>
-        <h1 className="text-3xl md:text-5xl font-serif mt-6 text-center">
-          Featured Projects
-        </h1>
-        <p className="text-center md:text-lg lg:text-lg lg:max-w-lg text-white/60 mt-4 max-w-md mx-auto ">
-          See how I transformed concepts into engaging digital experiences.
-        </p>
+        <HeaderSection
+          eyeBrow="Real-world Results"
+          title="Featured Projects"
+          description="See how I transformed concepts into engaging digital experiences."
+        />
 
         <div className="flex flex-col gap-20 md:gap-24 lg:gap-10 mt-10 md:mt-20">
           {portfolioProjects.map((project) => (
@@ -88,9 +84,13 @@ export const ProjectsSection = () => {
                 </ul>
 
                 <a href={project.link}>
-                  <button className="inline-flex justify-center mt-6 items-center gap-2 font-semibold bg-white text-gray-900 border border-white rounded-xl h-12 px-6 w-full md:w-48">
-                    Visit Live Site <ArrowRightIcon className="size-5" />
-                  </button>
+                  <Button
+                    text="Visit Live Site"
+                    variant="primary"
+                    iconPosition="right"
+                    className="w-full md:w-48 inline-flex justify-center mt-6 items-center"
+                    icon={<ArrowRightIcon className="size-5" />}
+                  />
                 </a>
               </div>
 
