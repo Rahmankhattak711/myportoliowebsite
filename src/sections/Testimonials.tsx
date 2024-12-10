@@ -41,7 +41,7 @@ const testimonials = [
 
 export const TestimonialsSection = () => {
   return (
-    <div>
+    <div className="py-6">
       <div className="container">
         <HeaderSection
           eyeBrow="Happy Clients"
@@ -50,14 +50,31 @@ export const TestimonialsSection = () => {
           my work."
         />
 
-        {testimonials.map((testimonial) => (
-          <div key={testimonial.name}>
-            <Image src={testimonial.avatar} alt={testimonial.name} />
-            <div>{testimonial.name}</div>
-            <div>{testimonial.position}</div>
-            <div>{testimonial.text}</div>
+        <div className="flex mt-16 md:mt-20 overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="flex gap-8 flex-none">
+            {testimonials.map((testimonial) => (
+              <div
+                key={testimonial.name}
+                className="bg-gray-800 max-w-xs p-6 md:p-8 md:max-w-md rounded-3xl border-2 border-white/10 "
+              >
+                <div className="flex items-center gap-4">
+                  <Image
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="size-14 bg-white/10 rounded-full"
+                  />
+                  <div>
+                    <div className="font-semibold ">{testimonial.name}</div>
+                    <div className="text-white/60 text-sm">
+                      {testimonial.position}
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-4 text-clip text-sm md:text-base md:mt-6">{testimonial.text}</div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

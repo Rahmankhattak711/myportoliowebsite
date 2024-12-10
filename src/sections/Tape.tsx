@@ -14,7 +14,7 @@ export const TapeSection = () => {
     "Reliable",
   ];
   return (
-    <div className="py-[110px]">
+    <div className="py-[100px] md:py-28">
       <div className="flex bg-gradient-to-r from-emerald-300 to-sky-300 overflow-x-clip -rotate-3 -mx-1">
         <div className="flex [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <div className="flex flex-none gap-4 py-3">

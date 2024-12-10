@@ -77,7 +77,7 @@ export const HeroSection = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-col items-center md:flex-row justify-center mt-8 gap-4">
+      <div className="flex flex-col md:flex-row lg:flex-row items-center justify-center mt-8 gap-4">
         <Button
           text="Explore My Work"
           variant="secondary"
