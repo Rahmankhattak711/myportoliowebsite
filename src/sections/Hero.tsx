@@ -10,9 +10,9 @@ import Button from "@/components/Button";
 export const HeroSection = () => {
   return (
     <div className="py-[90px] md:py-[154px] lg:py-[200px] relative z-0 overflow-x-clip">
-      <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
+      <div className="absolute inset-0 -z-50 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
         <div
-          className="absolute inset-0 -z-30 opacity-10 "
+          className="absolute inset-0 -z-30 opacity-10 after:pointer-events-none "
           style={{ backgroundImage: `url(${grainImage.src})` }}
         ></div>
         <div className="ring-class size-[620px] "></div>

@@ -7,6 +7,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: React.ReactNode;
   iconPosition?: "left" | "right";
   classNames?: string;
+  iconPositionClass?: string;
 }
 
 export default function Button({
@@ -15,6 +16,7 @@ export default function Button({
   icon,
   iconPosition,
   className,
+  iconPositionClass,
   ...props
 }: ButtonProps) {
   const classes = classNames({
@@ -26,9 +28,9 @@ export default function Button({
 
   return (
     <button className={`${classes} ${className} `} {...props}>
-      {iconPosition === "left" && icon && <span>{icon}</span>}
+      {iconPosition === "left" && icon && <span className={`${iconPositionClass}`}>{icon}</span>}
       <span className="font-semibold">{text}</span>
-      {iconPosition === "right" && icon && <span>{icon}</span>}
+      {iconPosition === "right" && icon && <span className={`${iconPositionClass}`}>{icon}</span>}
     </button>
   );
 }
