@@ -5,6 +5,7 @@ import memojiAvatar4 from "@/assets/images/memoji-avatar-4.png";
 import memojiAvatar5 from "@/assets/images/memoji-avatar-5.png";
 import HeaderSection from "@/components/HeaderSection";
 import Image from "next/image";
+import { Fragment } from "react";
 
 const testimonials = [
   {
@@ -50,28 +51,34 @@ export const TestimonialsSection = () => {
           my work."
         />
 
-        <div className="flex mt-16 md:mt-20 overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-          <div className="flex gap-8 flex-none">
-            {testimonials.map((testimonial) => (
-              <div
-                key={testimonial.name}
-                className="bg-gray-800 max-w-xs p-6 md:p-8 md:max-w-md rounded-3xl border-2 border-white/10 "
-              >
-                <div className="flex items-center gap-4">
-                  <Image
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    className="size-14 bg-white/10 rounded-full"
-                  />
-                  <div>
-                    <div className="font-semibold ">{testimonial.name}</div>
-                    <div className="text-white/60 text-sm">
-                      {testimonial.position}
+        <div className="flex mt-16 md:mt-16 overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] py-4">
+          <div className="flex gap-8 flex-none animate-move-left [animation-duration:90s] hover:[animation-play-state:paused] ">
+            {[...new Array(2)].fill(0).map((_, idx) => (
+              <Fragment key={idx}>
+                {testimonials.map((testimonial) => (
+                  <div
+                    key={testimonial.name}
+                    className="bg-gray-800 max-w-xs p-6 md:p-8 md:max-w-md rounded-3xl border-2 border-white/10 hover:-rotate-3 transition duration-75"
+                  >
+                    <div className="flex items-center gap-4">
+                      <Image
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                        className="size-14 bg-white/10 rounded-full"
+                      />
+                      <div>
+                        <div className="font-semibold ">{testimonial.name}</div>
+                        <div className="text-white/60 text-sm">
+                          {testimonial.position}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mt-4 text-clip text-sm md:text-base md:mt-6">
+                      {testimonial.text}
                     </div>
                   </div>
-                </div>
-                <div className="mt-4 text-clip text-sm md:text-base md:mt-6">{testimonial.text}</div>
-              </div>
+                ))}
+              </Fragment>
             ))}
           </div>
         </div>

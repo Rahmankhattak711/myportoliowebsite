@@ -1,3 +1,4 @@
+"use client";
 import HeaderSection from "@/components/HeaderSection";
 import Image from "next/image";
 import AtomicBookImage from "@/assets/images/book-cover.png";
@@ -16,8 +17,11 @@ import {
   SiCss3,
 } from "react-icons/si";
 import { RiNextjsLine, RiNodejsFill } from "react-icons/ri";
+import { Fragment, useRef } from "react";
+import { motion } from "framer-motion";
 
 export const AboutSection = () => {
+  const constrintRef = useRef(null);
   const toolboxitem = [
     {
       title: "Javascript",
@@ -99,27 +103,39 @@ export const AboutSection = () => {
               description="Explore the tools and technologies I use to craft degital experiences."
               className="px-6 mt-6"
             />
-            <div className="flex mt-8 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-              <div className="flex flex-none gap-4">
-                {toolboxitem.map((item) => (
-                  <div key={item.title} className="flex flex-col gap-6">
-                    <Button
-                      className="p-[28px]"
-                      text={item.title}
-                      variant="secondary"
-                      icon={item.icon}
-                      iconPosition="left"
-                      iconPositionClass="bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent text-black bg-clip-tex text-4xl"
-                    />
-                    <Button
-                      className="p-[28px]"
-                      text={item.title}
-                      variant="secondary"
-                      icon={item.icon}
-                      iconPosition="left"
-                      iconPositionClass="bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent text-black bg-clip-tex text-4xl"
-                    />
-                  </div>
+            <div className="flex flex-col gap-6 mt-8 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+              <div className="flex flex-none gap-4 animate-move-left [animation-duration:20s]">
+                {[...new Array(2)].fill(0).map((_, idx) => (
+                  <Fragment key={idx}>
+                    {toolboxitem.map((item) => (
+                      <div key={item.title} className="flex flex-col gap-6">
+                        <Button
+                          className="p-[28px]  "
+                          text={item.title}
+                          variant="secondary"
+                          icon={item.icon}
+                          iconPosition="left"
+                        />
+                      </div>
+                    ))}
+                  </Fragment>
+                ))}
+              </div>
+              <div className="flex flex-none gap-4 animate-move-right [animation-duration:20s]">
+                {[...new Array(2)].fill(0).map((_, idx) => (
+                  <Fragment key={idx}>
+                    {toolboxitem.map((item) => (
+                      <div key={item.title} className="flex flex-col gap-6">
+                        <Button
+                          className="p-[28px]  "
+                          text={item.title}
+                          variant="secondary"
+                          icon={item.icon}
+                          iconPosition="left"
+                        />
+                      </div>
+                    ))}
+                  </Fragment>
                 ))}
               </div>
             </div>
@@ -140,16 +156,21 @@ export const AboutSection = () => {
                 title="Beyond the Code"
                 description="Explore my interest and hobbies beyond the degital realm."
               />
-              <div className="flex flex-none gap-4">
+              <div className="flex flex-none gap-4" ref={constrintRef}>
                 {beyondthecode.map((item) => (
-                  <div key={item.title} className="flex flex-col gap-6 mt-8">
+                  <motion.div
+                    drag
+                    dragConstraints={constrintRef}
+                    key={item.title}
+                    className="flex flex-col gap-6 mt-8"
+                  >
                     <Button
                       text={item.title}
                       variant="informative"
                       icon={item.icon}
                       iconPosition="left"
                     />
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </Card>

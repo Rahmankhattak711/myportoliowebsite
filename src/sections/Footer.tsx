@@ -12,7 +12,7 @@ export const Footer = () => {
     },
   ];
   return (
-    <footer className="flex [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
+    <footer className="[mask-image:radial-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
       <div className="container">
         <div className="flex justify-between md:flex-row flex-col-reverse items-center border-t-2 border-white/20 py-4">
           <div>$copy; 2024. All rights reserved.</div>

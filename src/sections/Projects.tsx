@@ -57,10 +57,13 @@ export const ProjectsSection = () => {
         />
 
         <div className="flex flex-col gap-20 md:gap-24 lg:gap-10 mt-10 md:mt-20">
-          {portfolioProjects.map((project) => (
+          {portfolioProjects.map((project, projectIndex) => (
             <div
               key={project.title}
-              className="lg:flex lg:flex-row lg:gap-20 lg:px-20 lg:h-[350px] bg-gray-800 rounded-3xl border-2 overflow-hidden border-white/5 px-8 md:px-10 md:pt-10 pt-8 lg:pt-6 "
+              className="lg:flex lg:flex-row lg:gap-20 lg:px-20 lg:h-[350px] bg-gray-800 rounded-3xl border-2 overflow-hidden border-white/5 px-8 md:px-10 md:pt-10 pt-8 lg:pt-6 sticky top-16 "
+              style={{
+                top: `calc(64px + ${projectIndex * 40}px)`,
+              }}
             >
               <div>
                 <div className="flex-inline bg-gradient-to-r uppercase font-bold  tracking-widest from-emerald-300 to-sky-400 bg-clip-text text-transparent lg:pt-8">
